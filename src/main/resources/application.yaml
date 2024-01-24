@@ -1,0 +1,26 @@
+spring:
+  mvc:
+    # 어떤 경로에 대한 요청의 응답으로
+    # 정적 파일 응답을 할지를 결정하는 설정
+    static-path-pattern: /static/**
+  web:
+    resources:
+      # 어떤 폴더의 파일을 정적 응답으로 전달할지를 설정
+      static-locations: file:media/,classpath:/static
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    # 최초 실행 후 여기부터 아래까지 주석
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
